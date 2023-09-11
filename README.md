@@ -25,7 +25,7 @@ The HealthCare KYC Project is a web-based application designed to simplify the K
 Before you can run the HealthCare KYC Project locally, you need the following prerequisites:
 
 - A web server or hosting environment.
-- PHP (version X.X.X) installed.
+- PHP (version > 8.2) installed.
 - MySQL or another supported database system.
 - Composer for PHP dependency management.
 

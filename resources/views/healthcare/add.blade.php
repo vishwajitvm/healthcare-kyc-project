@@ -12,7 +12,13 @@
                     <h1 class="text-2xl font-semibold">{{ __('Add New Healthcare Record') }}</h1>
                     <a href="{{ route('healthcare.view') }}" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-full outline-none focus:shadow-outline hover:bg-blue-700" style="background: #6875f5">View Healthcare Records</a>
                 </div>
-                <form method="POST" action="" class="space-y-4">
+                @if (session('message'))
+                    <div class="alert alert-success">
+                        {{ session('message') }}
+                    </div>
+                @endif
+            
+                <form method="POST" action="{{ route('healthcare.store') }}" class="space-y-4">
                     @csrf
 
                     <div class="mt-4">
@@ -34,23 +40,22 @@
                         <x-label for="hq_name" :value="__('HQ Name')" />
                         <x-input id="hq_name" class="block mt-1 w-full" type="text" name="hq_name" required />
                     </div>
-
-                    <div class="mt-4">
-                        <x-label for="choice_health" :value="__('Choice Health')" />
-                        <select id="choice_health" name="choice_health" class="block mt-1 w-full rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 sm:text-sm" required>
-                            <option value="MAAC">MAAC</option>
-                            <option value="Ayurveda">Ayurveda</option>
-                            <option value="Mak Loyalty">Mak Loyalty</option>
-                        </select>
-                    </div>
                     
+                    <h2 class="mt-4 text-xl font-semibold">{{ __('Create Credentials') }}</h2>
 
                     <div class="mt-4">
-                        <x-label for="status" :value="__('Status')" />
-                        <select id="status" name="status" class="block mt-1 w-full rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 sm:text-sm" required>
-                            <option value="active">Active</option>
-                            <option value="inactive">Inactive</option>
-                        </select>
+                        <x-label for="email" :value="__('Email')" />
+                        <x-input id="email" class="block mt-1 w-full" type="email" name="email" required />
+                    </div>
+
+                    <div class="mt-4">
+                        <x-label for="password" :value="__('Password')" />
+                        <x-input id="password" class="block mt-1 w-full" type="password" name="password" required />
+                    </div>
+
+                    <div class="mt-4">
+                        <x-label for="password_confirmation" :value="__('Confirm Password')" />
+                        <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required />
                     </div>
 
                     <div class="flex items-center justify-end mt-5">

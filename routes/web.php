@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\doctorkyc\DoctorKycCOntroller;
 use App\Http\Controllers\heealthcare\HealthCareController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,11 +19,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () { return view('auth.login');});
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified', ])->group(function () {
-    Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
+    Route::get('/dashboard', function () { 
+        $user = Auth::user();
+        return view('dashboard' ,compact('user'));
+     })->name('dashboard');
 
     Route::controller(HealthCareController::class)->group(function () {
         Route::prefix('healthcare')->group(function () {
             Route::get('/view','index')->name('healthcare.view');
+            Route::post('/store','store')->name('healthcare.store');
             Route::get('/add','add')->name('healthcare.add');
             Route::get('/edit/{id}', 'edit')->name('healthcare.edit');
             Route::get('/delete/{id}', 'delete')->name('healthcare.delete');

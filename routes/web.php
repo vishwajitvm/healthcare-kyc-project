@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\doctorkyc\DoctorKycCOntroller;
 use App\Http\Controllers\heealthcare\HealthCareController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,16 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
             Route::get('/add','add')->name('healthcare.add');
             Route::get('/edit/{id}', 'edit')->name('healthcare.edit');
             Route::get('/delete/{id}', 'delete')->name('healthcare.delete');
+        });
+    });
+
+    Route::controller(DoctorKycCOntroller::class)->group(function () {
+        Route::prefix('doctorkyc')->group(function () {
+            Route::get('/view','index')->name('doctorkyc.view');
+            Route::get('/add','add')->name('doctorkyc.add');
+            Route::post('/store','store')->name('doctorkyc.store');
+            Route::get('/edit/{id}', 'edit')->name('doctorkyc.edit');
+            Route::get('/delete/{id}', 'delete')->name('doctorkyc.delete');
         });
     });
 });

@@ -39,6 +39,7 @@ class DoctorKycCOntroller extends Controller
             'phone' => $request->input('phone'),
             'practice_in' => $request->input('practice_in'),
             'status' => $request->input('status'),
+            'claim_type' => $request->input('claim_type'),            
         ];
     
         // Include the uploaded files in the data array

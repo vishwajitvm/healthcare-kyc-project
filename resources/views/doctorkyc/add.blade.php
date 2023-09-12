@@ -51,6 +51,15 @@
                         </select>
                     </div>
                     
+                    <div class="mt-4">
+                        <x-label for="record_type" :value="__('Record Type')" />
+                        <select id="claim_type" name="claim_type" class="block mt-1 w-full rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 sm:text-sm" required>
+                            <option value="MAAC">MAAC</option>
+                            <option value="Incentive">Incentive</option>
+                            <option value="Ayurved Bhandar Claim">Ayurved Bhandar Claim</option>
+                        </select>
+                    </div>
+                    
 
                     <div class="mt-4">
                         <x-label for="upload_visiting_card" :value="__('Upload Visiting Card')" />

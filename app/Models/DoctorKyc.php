@@ -23,7 +23,8 @@ public static function submit($data)
             $doctorKYC->phone = $data['phone'];
             $doctorKYC->practice_in = $data['practice_in'];
             $doctorKYC->status = $data['status'];
-
+            $doctorKYC->claim_type = $data['claim_type'];
+            
             // Upload visiting card and letter head and store file paths in the database
             if (isset($data['upload_visiting_card'])) {
                 $visitingCardPath = $data['upload_visiting_card']->store('visiting_cards', 'public');

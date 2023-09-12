@@ -30,9 +30,10 @@
                                 <th class="px-6 py-3 bg-gray-200 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">Locality</th> --}}
                                 <th class="px-6 py-3 bg-gray-200 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">Phone</th>
                                 <th class="px-6 py-3 bg-gray-200 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">Practice In</th>
+                                <th class="px-6 py-3 bg-gray-200 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">Claim Type</th>
                                 <th class="px-6 py-3 bg-gray-200 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">Status</th>
-                                <th class="px-6 py-3 bg-gray-200 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">Created At</th>
-                                <th class="px-6 py-3 bg-gray-200 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">Updated At</th>
+                                {{-- <th class="px-6 py-3 bg-gray-200 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">Created At</th>
+                                <th class="px-6 py-3 bg-gray-200 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">Updated At</th> --}}
                                 <th class="px-6 py-3 bg-gray-200 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">Actions</th>
                             </tr>
                         </thead>
@@ -47,9 +48,10 @@
                                 <td class="px-6 py-4 whitespace-no-wrap">{{ $record->locality }}</td> --}}
                                 <td class="px-6 py-4 whitespace-no-wrap">{{ $record->phone }}</td>
                                 <td class="px-6 py-4 whitespace-no-wrap">{{ $record->practice_in }}</td>
+                                <td class="px-6 py-4 whitespace-no-wrap">{{ $record->claim_type ?? "N/A" }}</td>
                                 <td class="px-6 py-4 whitespace-no-wrap">{{ $record->status }}</td>
-                                <td class="px-6 py-4 whitespace-no-wrap">{{ $record->created_at }}</td>
-                                <td class="px-6 py-4 whitespace-no-wrap">{{ $record->updated_at }}</td>
+                                {{-- <td class="px-6 py-4 whitespace-no-wrap">{{ $record->created_at }}</td>
+                                <td class="px-6 py-4 whitespace-no-wrap">{{ $record->updated_at }}</td> --}}
 
                                 <td class="px-6 py-4 whitespace-no-wrap">
                                     <a href="{{ route('doctorkyc.edit', ['id' => $record->id]) }}" class="text-blue-500 hover:text-blue-700 font-bold" title="Edit">Edit</a>

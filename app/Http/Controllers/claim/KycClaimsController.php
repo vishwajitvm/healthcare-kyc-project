@@ -4,6 +4,7 @@ namespace App\Http\Controllers\claim;
 
 use App\Http\Controllers\Controller;
 use App\Models\DoctorKyc;
+use App\Models\Incentive;
 use App\Models\Maac;
 use Illuminate\Http\Request;
 
@@ -68,9 +69,6 @@ class KycClaimsController extends Controller
             return back()->with('error', 'An error occurred while processing your request.');
         }
     }
-    
-    
-
 
     //MAAC STORE
     public function maacStore(Request $request)
@@ -112,7 +110,37 @@ class KycClaimsController extends Controller
             return back()->with('error', 'An error occurred while processing your request.');
         }
     }
-    
-    
-    
+
+    //INCENTIVE STORE
+    public function storeIncentive(Request $request)
+    {
+        $request->validate([
+            'kyc_id' => 'required',
+            'mr_name' => 'required|string',
+            'hq' => 'required|string',
+            'region' => 'required|string',
+            'distributor_name' => 'required|string',
+            'bill_number' => 'required|string',
+            'bill_date' => 'required|date',
+            'nrv_value' => 'required|string',
+        ]);
+
+        try {
+            // Create a new Incentive model instance
+            $incentive = new Incentive;
+            $incentive->kyc_id = $request->input('kyc_id');
+            $incentive->mr_name = $request->input('mr_name');
+            $incentive->hq = $request->input('hq');
+            $incentive->region = $request->input('region');
+            $incentive->distributor_name = $request->input('distributor_name');
+            $incentive->bill_number = $request->input('bill_number');
+            $incentive->bill_date = $request->input('bill_date');
+            $incentive->nrv_value = $request->input('nrv_value');
+            $incentive->save();
+            return redirect()->route('claim.view')->with('success', 'Incentive form submitted successfully!');
+        } catch (\Exception $e) {
+            // Handle any exceptions that occur during the process
+            return redirect()->route('claim.view')->with('error', 'An error occurred while processing your request.');
+        }
+    }
 }

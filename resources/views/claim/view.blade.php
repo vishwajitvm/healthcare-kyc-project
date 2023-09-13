@@ -10,8 +10,14 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
                 <h1 class="text-2xl font-semibold mb-4">{{ __('Submit KYC Claim') }}</h1>
                 @if(session('error'))
-                <div class="alert alert-success">
+                <div class="alert alert-danger">
                     {{ session('error') }}
+                </div>
+                @endif
+
+                @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
                 </div>
                 @endif
                 <form method="GET" action="{{ route('claim.submit') }}" class="space-y-4">

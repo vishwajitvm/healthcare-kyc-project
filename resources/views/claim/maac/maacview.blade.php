@@ -19,8 +19,7 @@
                     @csrf
 
                     <div class="mt-4">
-                        <x-label for="kyc_id" :value="__('Kyc id')" />
-                        <x-input id="kyc_id" class="block mt-1 w-full" type="text" value="{{ request('kycId') }}"  name="kyc_id" required disabled />
+                        <x-input  type="hidden" value="{{ request('kycId') }}"  name="kyc_id" />
                     </div>
 
                     <div class="mt-4">

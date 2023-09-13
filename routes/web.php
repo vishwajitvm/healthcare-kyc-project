@@ -56,6 +56,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
             
             //MAAC
             Route::post('/maac/store', 'maacStore')->name('claim.maac.store');
+            //INCENTIVE
+            Route::post('/incentive/store', 'storeIncentive')->name('claim.incentive.store');
 
         });
     });

@@ -58,6 +58,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
             Route::post('/maac/store', 'maacStore')->name('claim.maac.store');
             //INCENTIVE
             Route::post('/incentive/store', 'storeIncentive')->name('claim.incentive.store');
+            //ayurvedic-bhandar-claim
+            Route::post('/ayurvedic-bhandar-claim/store', 'AyurvedicBhandarClaimStore')->name('claim.ayurvedic-bhandar-claim.store');
 
         });
     });

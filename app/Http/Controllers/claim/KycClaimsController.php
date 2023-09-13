@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\claim;
 
 use App\Http\Controllers\Controller;
+use App\Models\AyurvedaBhandarClaim;
 use App\Models\DoctorKyc;
 use App\Models\Incentive;
 use App\Models\Maac;
@@ -143,4 +144,40 @@ class KycClaimsController extends Controller
             return redirect()->route('claim.view')->with('error', 'An error occurred while processing your request.');
         }
     }
+
+    public function AyurvedicBhandarClaimStore(Request $request)
+    {
+        $request->validate([
+            'kyc_id' => 'required',
+            'name_of_ss' => 'required|string',
+            'name_of_ayurveda_bhandar' => 'required|string',
+            'mobile_number' => 'required|string',
+            'name_of_distributor' => 'required|string',
+            'bill_number' => 'required|string',
+            'bill_date' => 'required|date',
+            'nrv_value' => 'required|string',
+            'claim_amount' => 'required|string',
+        ]);
+
+        try {
+            // Create a new AyurvedicBhandarClaim model instance
+            $ayurvedicBhandarClaim = new AyurvedaBhandarClaim;
+            $ayurvedicBhandarClaim->kyc_id = $request->input('kyc_id');
+            $ayurvedicBhandarClaim->name_of_ss = $request->input('name_of_ss');
+            $ayurvedicBhandarClaim->name_of_ayurveda_bhandar = $request->input('name_of_ayurveda_bhandar');
+            $ayurvedicBhandarClaim->mobile_number = $request->input('mobile_number');
+            $ayurvedicBhandarClaim->name_of_distributor = $request->input('name_of_distributor');
+            $ayurvedicBhandarClaim->bill_number = $request->input('bill_number');
+            $ayurvedicBhandarClaim->bill_date = $request->input('bill_date');
+            $ayurvedicBhandarClaim->nrv_value = $request->input('nrv_value');
+            $ayurvedicBhandarClaim->claim_amount = $request->input('claim_amount');
+            $ayurvedicBhandarClaim->save();
+
+            return redirect()->route('claim.view')->with('success', 'Ayurvedic Bhandar Claim form submitted successfully!');
+        } catch (\Exception $e) {
+            // Handle any exceptions that occur during the process
+            return redirect()->route('claim.view')->with('error', 'An error occurred while processing your request.');
+        }
+    }
+
 }

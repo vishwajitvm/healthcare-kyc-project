@@ -14,7 +14,7 @@
                     {{ session('error') }}
                 </div>
                 @endif
-                <form method="POST" action="{{ route('claim.submit') }}" class="space-y-4">
+                <form method="GET" action="{{ route('claim.submit') }}" class="space-y-4">
                     @csrf
 
                     <div class="mt-4">

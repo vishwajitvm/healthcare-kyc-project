@@ -48,7 +48,15 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::controller(KycClaimsController::class)->group(function () {
         Route::prefix('claim')->group(function () {
             Route::get('/view','index')->name('claim.view');
-            Route::post('/submit','submitClaim')->name('claim.submit');
+            Route::get('/submit', 'submitClaim')->name('claim.submit');
+            //VIEW
+            Route::get('/incentive/view', 'incentiveView')->name('claim.incentive.view');
+            Route::get('/maac/view', 'maacView')->name('claim.maac.view');
+            Route::get('/abc/view', 'abcView')->name('claim.abc.view');
+            
+            //MAAC
+            Route::post('/maac/store', 'maacStore')->name('claim.maac.store');
+
         });
     });
 });

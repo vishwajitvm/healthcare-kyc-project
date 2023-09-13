@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Maac extends Model
 {
     use HasFactory;
+    protected $table = 'maacs';
 }

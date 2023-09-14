@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArtisanController;
 use App\Http\Controllers\claim\KycClaimsController;
 use App\Http\Controllers\doctorkyc\DoctorKycCOntroller;
 use App\Http\Controllers\heealthcare\HealthCareController;
@@ -18,6 +19,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () { return view('auth.login');});
+
+Route::controller(ArtisanController::class)->group(function () {
+    Route::get('run-link-storage', 'linkStorage')->name('run.link-storage');
+    Route::get('run-clear-cache', 'clearCache')->name('run.clear-cache');
+    Route::get('run-optimize-clear', 'optimizeClear')->name('run.optimize-clear');
+    Route::get('run-config-clear', 'configClear')->name('run.config-clear');
+    Route::get('run-route-clear', 'routeClear')->name('run.route-clear');
+});
+
+
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified', ])->group(function () {
     Route::get('/dashboard', function () { 

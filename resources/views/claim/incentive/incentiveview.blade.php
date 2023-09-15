@@ -8,8 +8,8 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
-                <h1 class="text-2xl font-semibold mb-4">{{ __('Submit Incentive Form') }}</h1>
-                <a href="{{ route('incentive.claim.list', ['kycId' => request('kycId')]) }}" class="text-blue-500 hover:underline">
+                <h1 class="text-2xl font-semibold mb-4" style="display: inline">{{ __('Submit Incentive Form') }}</h1>
+                <a href="{{ route('incentive.claim.list', ['kycId' => request('kycId')]) }}" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-full outline-none focus:shadow-outline hover:bg-blue-700" style="background: #6875f5; float:right">
                     {{ __('View Claims') }}
                 </a>
 

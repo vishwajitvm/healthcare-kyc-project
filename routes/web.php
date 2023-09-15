@@ -67,10 +67,13 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
             
             //MAAC
             Route::post('/maac/store', 'maacStore')->name('claim.maac.store');
+            Route::get('/maac/claim/list/{kycId}', 'ListMaacClaim')->name('maac.claim.list');
             //INCENTIVE
             Route::post('/incentive/store', 'storeIncentive')->name('claim.incentive.store');
+            Route::get('/incentive/claim/list/{kycId}', 'ListIncentiveClaim')->name('incentive.claim.list');
             //ayurvedic-bhandar-claim
             Route::post('/ayurvedic-bhandar-claim/store', 'AyurvedicBhandarClaimStore')->name('claim.ayurvedic-bhandar-claim.store');
+            Route::get('/ayurvedic-bhandar-claim/claim/list/{kycId}', 'AyurvedicBhandarClaimList')->name('ayurvedic-bhandar-claim.claim.list');
 
         });
     });

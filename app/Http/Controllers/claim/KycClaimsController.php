@@ -180,4 +180,22 @@ class KycClaimsController extends Controller
         }
     }
 
+    public function ListMaacClaim($kycId)
+    {
+        $claims = Maac::where('kyc_id', $kycId)->get();    
+        return view('claim.maac.listmaac', ['claims' => $claims]);
+    }
+
+    public function ListIncentiveClaim($kycId)
+    {
+        $claims = Incentive::where('kyc_id', $kycId)->get();    
+        return view('claim.incentive.listincentive', compact('claims'));
+    }
+
+    public function AyurvedicBhandarClaimList($kycId)
+    {
+        $claims = AyurvedaBhandarClaim::where('kyc_id', $kycId)->get();    
+        return view('claim.abc.abclist', compact('claims'));
+    }
+
 }

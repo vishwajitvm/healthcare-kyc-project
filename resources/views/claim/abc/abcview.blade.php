@@ -9,6 +9,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
                 <h1 class="text-2xl font-semibold mb-4">{{ __('Submit Ayurvedic Bhandar Claim Form') }}</h1>
+                <a href="{{ route('ayurvedic-bhandar-claim.claim.list', ['kycId' => request('kycId')]) }}" class="text-blue-500 hover:underline">
+                    {{ __('View Claims') }}
+                </a>
                 <form method="POST" action="{{ route('claim.ayurvedic-bhandar-claim.store') }}" class="space-y-4">
                     @csrf
 

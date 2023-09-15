@@ -78,9 +78,9 @@
                                 <td class="px-6 py-4 whitespace-no-wrap">{{ $record->updated_at }}</td>
 
                                 <td class="px-6 py-4 whitespace-no-wrap">
-                                    <a href="{{ route('healthcare.edit', ['id' => $record->id]) }}"
+                                    {{-- <a href="{{ route('healthcare.edit', ['id' => $record->id]) }}"
                                         class="text-blue-500 hover:text-blue-700 font-bold" title="Edit">Edit</a>
-                                    <span class="mx-2">|</span> <!-- Add a separator -->
+                                    <span class="mx-2">|</span> <!-- Add a separator --> --}}
                                     <a href="{{ route('healthcare.delete', ['id' => $record->id]) }}"
                                         class="text-red-500 hover:text-red-700 font-bold" title="Delete">Delete</a>
                                 </td>

@@ -34,6 +34,23 @@
                         Claim
                     </x-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
+                        Profile
+                    </x-nav-link>
+                </div>
+
+                {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <form method="POST" action="{{ route('logout') }}" x-data>
+                    @csrf
+
+                    <x-nav-link href="{{ route('logout') }}"
+                            @click.prevent="$root.submit();">
+                        {{ __('Log Out') }}
+                    </x-nav-link>
+                </form>
+                </div> --}}
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
